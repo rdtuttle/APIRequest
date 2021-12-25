@@ -122,6 +122,27 @@ header h1 {
    Modal
 ======================================== */
 
+.button{
+    display: inline-block;
+    height: 50px;
+    width: 100px;
+    background: rgb(117, 116, 115);
+}
+
+#rightButton{
+    float: right;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+
+#leftButton{
+    float: left;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+
 .modal-container {
     position: fixed;
     top: 0;
