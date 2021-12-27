@@ -9,14 +9,14 @@ fetch("https://randomuser.me/api/?results=12&nat=us")
     galleryInfo = data
     generateCard(data.results)
   })
-  .catch(error => console.log(error))
+  .catch(error => alert(error))
 
 //display cards on page
 function generateCard(data) {
     const cards = data.map((card, index) => `
     <div onclick = 'cardClick(event)' class="card" id = '${index}'>
     <div class="card-img-container">
-        <img class="card-img" src=${card.picture.thumbnail} alt="profile picture">
+        <img class="card-img" src=${card.picture.large} alt="profile picture">
     </div>
     <div class="card-info-container">
         <h3 id="name" class="card-name cap">${card.name.first} ${card.name.last}</h3>
@@ -42,7 +42,7 @@ function generateModal(index) {
     <div class="modal">
     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
     <div class="modal-info-container">
-        <img class="modal-img" src=${galleryIndex.picture.medium} alt="profile picture">
+        <img class="modal-img" src=${galleryIndex.picture.large} alt="profile picture">
         <h3 id="name" class="modal-name cap">${galleryIndex.name.first} ${galleryIndex.name.last}</h3>
         <p class="modal-text">${galleryIndex.email}</p>
         <p class="modal-text cap">${galleryIndex.location.city}</p>
@@ -104,7 +104,7 @@ searchContainer.addEventListener("keyup", (e) => {
   for(let i = 0; i < gallery.children.length; i++) {
     let namesToDisplay = gallery.children[i].children[1].children[0].textContent.toLowerCase();
     if(namesToDisplay.includes(searchInput)) {
-      gallery.children[i].setAttribute('style', 'display: block')
+      gallery.children[i].setAttribute('style', 'display: flex')
     }else if(!(namesToDisplay.includes(searchInput))) {
         gallery.children[i].setAttribute('style', 'display: none')
     }
